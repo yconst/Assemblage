@@ -185,7 +185,7 @@ img { border: none }
 }
 
 .projectTitle :visited {
-  color:#999;
+  color:#777;
 }
 
 .projectDate {
@@ -197,9 +197,9 @@ img { border: none }
 }
 
 #footer {
-  font-size:11px;
+  font-size:10px;
   color:#999;
-  width:600px;
+  padding:1em 0;
 }
 
 /** Javascript alert */

@@ -21,11 +21,12 @@ $(document).ready(function() {
    var _interval = setInterval(function() {
       $('#slidebutton').animate({top:"-=3px"},40)
                      .animate({top:"+=6px"},80)
-                     .animate({top:"-=5px"},80)
-                     .animate({top:"+=4px"},80)
-                     .animate({top:"-=3px"},80)
-                     .animate({top:"+=1px"},60)
-   }, 2500);
+                     .animate({top:"-=5px"},100)
+                     .animate({top:"+=4px"},120)
+                     .animate({top:"-=3px"},150)
+                     .animate({top:"+=2px"},200)
+                     .animate({top:"-=1px"},120)
+   }, 3000);
    
    // Nav arrow (top left) behavior & show.
    $('#slidebutton').click(function() {
@@ -100,7 +101,7 @@ $(document).ready(function() {
    $('.project:not(#control)').each(function(_i) {
       $(this).prepend("<div class=\"projectCat invis1\">"+_i+"</div>");
    });
-   $('.project:not(#control)').tsort('.projectDate', {order:'desc'});
+   //$('.project:not(#control)').tsort('.projectDate', {order:'desc'});
    
    $('#sbd').click(function() {
       $('.project:not(#control)').tsort('.projectDate', {order:'desc'});

@@ -1,0 +1,101 @@
+/* Colours */
+
+body, a { color: #404040; }
+
+/* Typography */
+
+body {
+  font-family: 'DejaVuSansBook', arial, sans-serif;
+  font-style:normal;
+  font-variant: normal;
+  font-size:8.5pt;
+  line-height: 1.4;
+  text-decoration:none;
+}
+
+a {
+  text-decoration:none;
+}
+
+h2 {
+  font-size:13pt;
+  font-weight:300;
+  margin:0.12cm 0;
+  page-break-after:avoid;
+}
+
+h3 {
+  font-size:9pt;
+  font-weight:normal;
+  margin:0;
+  page-break-after:avoid;
+}
+
+h4 {
+  color:#999;
+  font-weight:normal;
+  margin:0 0 0.1cm 0;
+  page-break-after:avoid;
+}
+
+/* Layout */
+
+.topbar, .navbar, #navbutton,
+#comments-title, #comments-thread,
+#footer-creds, #downloads-title,
+#downloads, #pdfs-title, #pdfs {
+  display:none;
+}
+
+img { border:none }
+
+.image {
+  margin:0.28cm 0 0.28cm 0;
+}
+
+.image img {
+  width:100%;
+  height:auto;
+}
+
+#outer-container {
+  text-align:center;
+  padding:0.6cm;
+}
+
+#inner-container {
+  text-align:left;
+  max-width:15.2cm;
+  min-width:9cm;
+  margin:0 auto;
+}
+
+#title {
+  border-bottom: 1pt solid #000;
+}
+
+#description {
+  padding:0.5cm 0 0.5cm 0;
+  width:100%;
+}
+
+#description a[href]:after, #links a[href]:after {
+   content:" ("attr(href)") ";
+   color:#999;
+   background:inherit;
+}
+
+.double-column {
+  -webkit-column-width:7cm;
+  -webkit-column-gap:0.8cm;
+  -moz-column-width:7cm;
+  -moz-column-gap:0.8cm;
+  column-width:7cm;
+  column-gap:0.8cm;
+}
+
+#footer {
+  font-size:6.5pt;
+  color:#aaa;
+  padding:0.2cm 0;
+}

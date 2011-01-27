@@ -1,0 +1,5 @@
+<div class="navbar">
+  if !@is_last do <a class="rt" rel="next" href="foreach $next_sibling do @url endforeach"><img src="@root_path/public/images/arrow_right.png" foreach $next_sibling do alt="Next: @title" title="Next: @title" endforeach/></a> endif          
+  if !@is_first do <a class="lt" rel="prev" href="foreach $previous_sibling do @url endforeach"><img src="@root_path/public/images/arrow_left.png" foreach $previous_sibling do alt="Previous: @title" title="Previous: @title" endforeach/></a> endif
+  <a class="lt" href="@root_path"><img src="@root_path/public/images/home_b.png" alt="home"/></a>
+</div>

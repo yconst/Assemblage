@@ -1,13 +1,13 @@
 // Initialize stuff after Document is ready.
 $(document).ready(function() {
-   
     
 });
 
 $(window).load(function() {
 	
-	//Nav arrow (top left) behavior & show.
-   $('#navbutton').click(function() {
+	// Nav arrow (top left) behavior & show. Disabled for the moment till navigation
+    // is implemented
+   /**$('#navbutton').click(function() {
       _this=$(this);
       _chld=_this.find("img");
       _tags.slideToggle(200, function() {
@@ -17,6 +17,6 @@ $(window).load(function() {
             _chld.attr("src", _chld.attr("src").replace("_up", ""));
          }
       });
-   }).fadeIn(500).removeClass('invis').css('display','');
+   }).fadeIn(500).removeClass('invis').css('display','');*/
 
 });

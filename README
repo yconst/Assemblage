@@ -1,0 +1,28 @@
+# Assemblage
+
+Assemblage is a template for the Stacey CMS. I developed it for my online portfolio and it seemed quite nice so I decided to make it public. It's uniqueness lies in the fact that it leverages client-side scripting to provide a rich and meaningful interactive experience. I tend to see it as a kind of "other half" for the Stacey CMS, in the sense that Stacey organizes and provides the static content and Assemblage presents it in a dynamic and efficient way.
+
+Almost all of the navigation and layout in the main page is build on top of Javascript and jQuery. A special layout plugin has been developed for this purpose (which will be released separately once it passes a couple tests), based on ideas from [jQuery Masonry][2] and [vGrid][3]. The idea behind these plugins is to arrange a collection of  elements in a layout that is as spatially efficient as possible, while maintaining their order. The benefit from this approach is that screen estate is used optimally and the layout may adapt to screen widths of different devices, therefore becoming much more compatible.
+
+Navigation relies on the concept of filtering. At the beginning, all pages are visible as preview boxes. Sliding the navigation panel and selecting a category or sub-category hides all preview boxes except the ones belonging to the selected category. Clicking on a category will show all of it's items as well as those of all of it's sub-categories. 
+
+The same navigational functionality as the home page is provided for every category page, with the only difference that the navigation of each category includes only it's own contents.
+
+The page template on the other hand follows a completely different, clean approach that focuses  first and foremost on bringing the content forward. Navigation can be brought up right at the project pages by clicking on the arow on top. At the panel that slides out you can see related projects, which are essentially projects in the same category as the one being viewed. Finally, the project template features a nice and clean print style so your content shows best in print as well as on screen.
+
+###Installation
+
+Following the installation guidelines set by the Stacey CMS, installation of Assemblage is a snap. Just replace your "public" and "templates" folders and you're set to go, provided that you have the same exhibition names as the original Stacey installation (e.g. index.html, project.html).
+
+###Known issues and limitations:
+
+- If you have a folder with the same name and (reverse) index in multiple locations, the filtering gets messed up.
+- CSS and Javascript is still kinda messed up and certainly not healthy for your eyes.
+- This is an early alpha release. While tested on some browsers (including IE 6), it's not what you'd call bulletproof.
+- Feeds and sitemaps are just copied from the original Stacey distribution. No change there.
+- The link system kinda sucks..
+- No documentation! (but still easy to install..)
+
+[1]: http://www.staceyapp.com
+[2]: http://desandro.com/resources/jquery-masonry/
+[3]: http://blog.xlune.com/2009/09/jqueryvgrid.html
