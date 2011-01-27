@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>@name / @profession </title>
+    <link rel="alternate" type="application/atom+xml" href="@root_path/?/feed/"/>
+    <link rel="stylesheet" href="@root_path/public/docs/css/index.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="@root_path/public/docs/fontkit/stylesheet.css" type="text/css"/>
+  </head>
+  <body>
+    <noscript>
+      <p class="alert">
+      JavaScript is highly recommended for full functionality.
+      </p>
+    </noscript>
+    <div id="outer-container">
+      :navigation
+      <div id="container">
+        <script type="text/javascript">
+          //Preliminary show/hide etc. Just to make inital fadein better looking.
+          document.getElementById('container').style.display = 'none';
+        </script>
+        <div id="control" class="project">
+          :slidebutton
+          <div id="title">
+           <h3><a href="@root_path/about/">@name<br />@profession</a></h3>
+          </div>
+        </div>
+      :preview-boxes
+      </div>
+      :footer
+      </div>
+      <script type="text/javascript">
+        document.getElementById('footer').style.display = 'none';
+      </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="@root_path/public/docs/js/jquery.feedpack.js"></script>
+    <script type="text/javascript" src="@root_path/public/docs/js/jquery.tinysort.min.js"></script>
+    <script type="text/javascript" src="@root_path/public/docs/js/init-index.js"></script>
+  </body>
+</html>

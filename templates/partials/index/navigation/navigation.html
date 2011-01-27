@@ -1,0 +1,12 @@
+<div id="tags">
+:hometag
+<div class="nest border-top nohide">
+foreach $root do if $children do
+<div class="tag" id="@slug-@index">@title</div>
+endif endforeach
+</div>
+foreach $root do if $children do
+  :children
+endif endforeach
+:options
+</div>
