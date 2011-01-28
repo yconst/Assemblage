@@ -8,13 +8,13 @@ Navigation relies on the concept of filtering. At the beginning, all pages are v
 
 The same navigational functionality as the home page is provided for every category page, with the only difference that the navigation of each category includes only it's own contents.
 
-The page template on the other hand follows a completely different, clean approach that focuses  first and foremost on bringing the content forward. Navigation can be brought up right at the project pages by clicking on the arow on top. At the panel that slides out you can see related projects, which are essentially projects in the same category as the one being viewed. Finally, the project template features a nice and clean print style so your content shows best in print as well as on screen. It features partials for downloads (_downloads folder), pdfs, linkrolls (kinda sucky) and inclusion of [Disqus][4]-powered comments.
+The page template on the other hand follows a completely different, clean approach that focuses  first and foremost on bringing the content forward. <strike>Navigation can be brought up right at the project pages by clicking the arrow on top. At the panel that slides out you can see related projects, which are essentially projects in the same category as the one being viewed.</strike>(yea, at least that's the plan..) Finally, the project template features a nice and clean print style so your content shows best in print as well as on screen. It features partials for downloads (_downloads folder), pdfs, linkrolls (kinda sucky) and inclusion of [Disqus][4]-powered comments.
 
 Finally, it comes along with the [DejaVu sans typeface][5].
 
 ###Installation
 
-Following the installation guidelines set by the Stacey CMS, installation of Assemblage is a snap. Just replace your "public" and "templates" folders and you're set to go, provided that you have the same exhibition names as the original Stacey installation (e.g. index.html, project.html).
+Following the installation guidelines set by the Stacey CMS, installation of Assemblage is a snap. Just replace your "public" and "templates" folders and you're set to go, provided that you have the same exhibition names as the original Stacey installation (e.g. index.html, page.html).
 
 ###Known issues and limitations:
 
