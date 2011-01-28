@@ -1,6 +1,6 @@
 # Assemblage
 
-Assemblage is a template for the Stacey CMS. I developed it for my online portfolio and it seemed quite nice so I decided to make it public. It's uniqueness lies in the fact that it leverages client-side scripting to provide a rich and meaningful interactive experience. I tend to see it as a kind of "other half" for the Stacey CMS, in the sense that Stacey organizes and provides the static content and Assemblage presents it in a dynamic and efficient way.
+Assemblage is a template for the Stacey CMS (the one you're browsing in right now!). I developed it for my online portfolio and it seemed quite nice so I decided to release it as a ready-to-use template. It's based on the concept of using client-side scripting to dynamically generate the layout and take care of navigation. In this sense, I tend to see it as a kind of "other half" for the Stacey CMS: Stacey organizes and provides the static content and Assemblage presents it in a dynamic and efficient way.
 
 Almost all of the navigation and layout in the main page is build on top of Javascript and jQuery. A special layout plugin has been developed for this purpose (which will be released separately once it passes a couple tests), based on ideas from [jQuery Masonry][2] and [vGrid][3]. The idea behind these plugins is to arrange a collection of  elements in a layout that is as spatially efficient as possible, while maintaining their order. The benefit from this approach is that screen estate is used optimally and the layout may adapt to screen widths of different devices, therefore becoming much more compatible.
 
@@ -8,7 +8,9 @@ Navigation relies on the concept of filtering. At the beginning, all pages are v
 
 The same navigational functionality as the home page is provided for every category page, with the only difference that the navigation of each category includes only it's own contents.
 
-The page template on the other hand follows a completely different, clean approach that focuses  first and foremost on bringing the content forward. Navigation can be brought up right at the project pages by clicking on the arow on top. At the panel that slides out you can see related projects, which are essentially projects in the same category as the one being viewed. Finally, the project template features a nice and clean print style so your content shows best in print as well as on screen.
+The page template on the other hand follows a completely different, clean approach that focuses  first and foremost on bringing the content forward. Navigation can be brought up right at the project pages by clicking on the arow on top. At the panel that slides out you can see related projects, which are essentially projects in the same category as the one being viewed. Finally, the project template features a nice and clean print style so your content shows best in print as well as on screen. It features partials for downloads (_downloads folder), pdfs, linkrolls (kinda sucky) and inclusion of [Disqus][4]-powered comments.
+
+Finally, it comes along with the [DejaVu sans typeface][5].
 
 ###Installation
 
@@ -26,3 +28,5 @@ Following the installation guidelines set by the Stacey CMS, installation of Ass
 [1]: http://www.staceyapp.com
 [2]: http://desandro.com/resources/jquery-masonry/
 [3]: http://blog.xlune.com/2009/09/jqueryvgrid.html
+[4]: http://disqus.com/
+[5]: http://www.fontsquirrel.com/fonts/DejaVu-Sans
