@@ -1,7 +1,7 @@
 // Initialize stuff after Document is ready.
 $(document).ready(function() {
-    if (!(navigator.userAgent.toLowerCase().match('chrome')))
-      document.getElementById('description').className = document.getElementById('description').className + " minh";
+    if (navigator.userAgent.toLowerCase().match('chrome'))
+      document.getElementById('description').className = document.getElementById('description').className.replace(" minh", "");
 });
 
 $(window).load(function() {
