@@ -116,7 +116,10 @@ img { border:none }
 #description {
   font-size:12px;
   padding:0 0 2em 0;
-  /*min-height: 8em;*/
+}
+
+.minh {
+  min-height: 8em;
 }
 
 .double-column {

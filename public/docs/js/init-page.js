@@ -1,6 +1,7 @@
 // Initialize stuff after Document is ready.
 $(document).ready(function() {
-    
+    if (!(navigator.userAgent.toLowerCase().match('chrome')))
+      document.getElementById('description').className = document.getElementById('description').className + " minh";
 });
 
 $(window).load(function() {
