@@ -4,45 +4,22 @@ $(document).ready(function() {
    $('.project').addClass('invis1');
    
    // Useful variables
-   var _tags=$('#tags');
-   var _home=$('#project').find('img');
+   var _c = 320,
+       _title = $('#title'),
+       _tags=$('#tags'),
+       _home=$('#project').find('img'),
+       _footer = $('#footer');
    
    // Pack the navigation elements (tag groups)
-   $('.nest:not(.nohide)').addClass('nosort').hide();
-   _tags.feedpack({
-      itemClass: '.nest:not(.nosort)',
+   $('.nest:not(.nohide)').slice(2).addClass('nosort').addClass("nestInvis");
+   $('.nest:not(.nohide)').slice(1).addClass('nestInvis2')
+   _tags.show().feedpack({
+      itemClass: '.nest:visible:not(.nosort)',
       imageLoad : false,
+      animate : true,
       forceWidth : true,
-      snapHeight : 64,
-      snapClass : "nest"
+      containerWidthStep : _c
    });
-   
-   // Set an interval for bouncing the navigation arrow.
-   var _interval = setInterval(function() {
-      $('#slidebutton').animate({top:"-=3px"},40)
-                     .animate({top:"+=6px"},80)
-                     .animate({top:"-=5px"},100)
-                     .animate({top:"+=4px"},120)
-                     .animate({top:"-=3px"},150)
-                     .animate({top:"+=2px"},200)
-                     .animate({top:"-=1px"},120)
-   }, 3000);
-   
-   // Nav arrow (top left) behavior & show.
-   $('#slidebutton').click(function() {
-      _this=$(this);
-      _child=_this.find("img");
-      _tags.slideToggle(200, function() {
-         if (_tags.is(':visible')) {
-            _child.attr("src", _child.attr("src").replace("arrow", "arrow_up"));
-         } else {
-            _child.attr("src", _child.attr("src").replace("arrow_up", "arrow"));
-         }
-         // Clear the bouncing arrow interval, it shouldn't become
-         // a pain in the ass.
-      clearInterval(_interval);
-      });
-   }).fadeIn(500);
    
    // Navigation tips showing member count for each category.
    // Generates tip html dynamically and then handles visibility on hover.
@@ -51,70 +28,119 @@ $(document).ready(function() {
       _l=$( '.'+_this.attr('id') ).length;
       if (_l==1) {_sfx=" Item"} else {_sfx=" Items"}
       $('<div id="tip">'+_l+_sfx+'</div>').appendTo(_this);
-   }).mouseover(function() {
+   });
+   
+   // Tag mouseover and mouseout behavior
+   $(".tag").mouseenter(function() {
       _this=$(this);
+      _id=this.id;
+      // Transparent layer
+      clearTimeout(_tags.data('actproj'));
+      _tags.data('actproj',setTimeout(function() {
+      $(".project").not("."+_id).removeClass("projectActive").find(".projectTitle").hide();
+      $( "."+_id ).addClass("projectActive").find(".projectTitle").show();
+      },600));
+      // Tooltip fadein
       _this.data('tipdelay',setTimeout(function() {_this.find('#tip').fadeIn(200)},800));
-   }).mouseout(function() {
+      //Expand navigation
+      clearTimeout(_tags.data('compacttags'));
+      if (_tags.is(".compact")) {
+         _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").feedpack()},240));
+      }
+   }).mouseleave(function() {
       _this=$(this);
+      // Transparent layer
+      clearTimeout(_tags.data('actproj'));
+      $(".project").removeClass("projectActive").find(".projectTitle").hide();
+      // Tooltip fadeout
       clearTimeout(_this.data('tipdelay'));
       _this.find('#tip').fadeOut(420);
    });
    
-   // Category selection, tree highlighting and object filtering.
-   $(".tag").mouseover(function(){
-      $(".project").not("."+this.id).not("#control").removeClass("projectActive");
-      $( "."+this.id ).addClass("projectActive");
+   _tags.mouseenter(function() {
+      clearTimeout(_tags.data('compacttags'));
+   }).mouseleave(function() {
+      clearTimeout(_tags.data('expandtags'));
+      if (!_tags.is(".compact")) {
+         _tags.data('compacttags',setTimeout(function() {_tags.addClass("compact").feedpack()},800));
+      }
    });
    
-   // Moving mouse out of tag element
-   $(".tag").mouseout(function(){
-      $(".project").removeClass("projectActive");
-   });
+   $(".options").mouseover(function() {
+      clearTimeout(_tags.data('expandtags'));
+   })
    
    // Clicking tags
-   $(".tag").click(function(e){
+   $(".tag:not(#project)").click(function(e){
       _this = $(this);
+      _id = this.id;
       
       $(".tag").addClass("tagInactive");
-      $("."+this.id+"-tag").add(_this).removeClass("tagInactive");
+      $("."+_id+"-tag").add(_this).removeClass("tagInactive");
       
-      $(".nest:not(.nohide)").addClass("nosort").hide();
-      $("."+this.id+"-nest").has(".tag").removeClass("nosort").show();
+      $(".nest:not(.nohide)").addClass("nosort").addClass("nestInvis").removeClass("nestInvis2");
+      _collection = $("."+_id+"-nest");
+      _index = _collection.index(_this.parent())+1;
+      _collection.slice(0,_index).add(".parent-is-"+_id).has(".tag").removeClass("nosort").removeClass("nestInvis");
+      $(".parent-is-"+_id).addClass("nestInvis2");
       
-      $(".project").not("."+this.id).not("#control").addClass("nosort").fadeOut(400);
-      $( "."+this.id ).removeClass("nosort").fadeIn(400);
+      $(".project").not("."+_id).not("#control").addClass("nosort").fadeOut(400);
+      $( "."+_id ).removeClass("nosort").fadeIn(400);
+      
       _tags.feedpack();
-      $('#container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
-      
+      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
    });
    
-   // Clicking on "Home" tag behavior
-   $(".home-tag").click(function(e){
+   $("#project").click(function() {
       _this = $(this);
+      
       $(".tag").removeClass("tagInactive");
-      $(".project").removeClass("nosort").fadeIn(400);
-      $('#container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+      
+      $(".nest:not(.nohide)").addClass("nosort").addClass("nestInvis").removeClass("nestInvis2");
+      _this.parent().next().add(_this.parent()).removeClass("nosort").removeClass("nestInvis");
+      $(".parent-is-"+_id).addClass("nestInvis2");
+      
+      $( "."+this.id ).removeClass("nosort").fadeIn(400);
+      _tags.feedpack();
+      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
    });
    
    // Save original element order into a new invisible div and Sort using TinySort
    // http://tinysort.sjeiti.com/
-   $('.project:not(#control)').each(function(_i) {
+   $('.project').each(function(_i) {
       $(this).prepend("<div class=\"projectCat invis1\">"+_i+"</div>");
    });
-   //$('.project:not(#control)').tsort('.projectDate', {order:'desc'});
+   //$('.project').tsort('.projectDate', {order:'desc'});
    
+   // Different Sorting Options
    $('#sbd').click(function() {
       $('.project:not(#control)').tsort('.projectDate', {order:'desc'});
-      $('#container').feedpack();
+      $('#preview-container').feedpack();
    });
    
    $('#sbc').click(function() {
       $('.project:not(#control)').tsort('.projectCat', {order:'asc'});
-      $('#container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+   });
+   
+   $('#sbr').click(function() {
+      $('.project:not(#control)').tsort("",{order:"rand"});
+      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+   });
+   
+   //Show/hide project title and summary
+   $('.projectTitle').hide();
+   
+   $('.project').mouseenter(function() {
+      $(this).find('.projectTitle').slideDown(80);
+   }).mouseleave(function() {
+      $(this).find('.projectTitle').slideUp(80);
+   }).click(function() {
+      $(this).find('.projectTitle').slideUp(80);
    });
    
    // Pack project thumbnails
-   $('#container').feedpack({
+   $('#preview-container').feedpack({
       itemClass: '.project:not(.nosort)',
       animate : true,
       forceWidth : true,
@@ -130,4 +156,23 @@ $(document).ready(function() {
          setTimeout(function() {$('#footer').fadeIn(500)}, 2500);
       }
    }).show();
+   
+   _title.add(_footer).each(function() {
+      var _w = $(window).width(),
+          _n = parseInt(_w/_c);
+      $(this).width(_n*_c);
+   });
+   
+   // Update title width on window resize.
+   $(window).resize(function() {
+      _title.add(_footer).each(function() {
+         var _it = $(this);
+         clearTimeout(_it.data("rsz"));
+         _it.data("rsz", setTimeout(function() {
+            var _w = $(window).width(),
+                _n = parseInt(_w/_c);
+            _it.width(_n*_c);
+         }, 200) );
+      });
+   });
 });

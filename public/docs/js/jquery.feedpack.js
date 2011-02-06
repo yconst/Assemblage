@@ -107,11 +107,17 @@
           for (i=0;i<_span;i++) {_currentTop[_idx+i] = _newH}
       });
 
-	  // Define container-specific CSS and force width if forceWidth is true.
+	  // Define container-specific CSS and force width if forceWidth is true,
+	  // taking into account containerWidthStep if present, to specify a different
+	  // step than the width of the elements.
 	  // Also restore original position information.
-	  _ccss={height: Math.max.apply(Math, _currentTop), display: _disp, visibility: _vis};
-	  if (_o.forceWidth) {_ccss.width=_columns*_colWidth}
-      _container.css(_ccss);
+	  _ccss={display: _disp, visibility: _vis};
+	  if (_o.forceWidth) {
+		_ccss.width=_o.containerWidthStep? _o.containerWidthStep*(parseInt((_columns+0.9999)*_colWidth/_o.containerWidthStep)) : _columns*_colWidth;
+	  }
+	  _container.css(_ccss);
+	  _ccss={height: Math.max.apply(Math, _currentTop)};
+      if (_o.animate && _cdata) {_container.animate(_ccss, $.extend( true, {}, _o.animationOptions))} else {_container.css(_ccss);}
 	  
 	  // Set position of items to absolute. http://bit.ly/hpo7Nv
 	  _elements.css({position: 'absolute'});
@@ -150,7 +156,8 @@
 	animate : false,
 	imageLoad : true,
 	containerResize : true,
-	forceWidth : false
+	forceWidth : false,
+	containerWidthStep : undefined
   }
   
   // Overriding options.

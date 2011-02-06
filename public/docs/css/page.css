@@ -14,6 +14,8 @@ body {
   font-size:13px;
   line-height: 1.34em;
   text-decoration:none;
+  margin:0;
+  background:#fbfbfb;
 }
 
 a:hover {
@@ -27,20 +29,20 @@ p {
 h2 {
   font-size:16px;
   font-weight:300;
-  margin:0.5em 0;
+  margin:1.2em 0 0.3em 0;
 }
 
 h3 {
-  font-size:13px;
+  font-size:14px;
   font-weight:normal;
-  margin:0.5em 0;
+  margin:0;
 }
 
 h4 {
   font-size:12px;
   color:#888;
   font-weight:normal;
-  margin:0.5em 0;
+  margin:0.5em  0 1.7em 0;
 }
 
 /* Layout */
@@ -48,7 +50,7 @@ h4 {
 img { border:none }
 
 .image {
-  margin:12px 0 12px 0;
+  margin:2em 0;
 }
 
 .image img {
@@ -60,19 +62,10 @@ img { border:none }
   display:none;
 }
 
-#navbutton {
-  cursor:pointer;
-  width:100%;
-  text-align:center;
-  margin:1px auto;
-  padding:3px 0 3px 0;
-  font-size:10px;
-  background:#efeff1;
-}
-
 #outer-container {
   text-align:center;
   padding:0 14px;
+  margin:0;
   overflow-x:hidden;
 }
 
@@ -84,17 +77,16 @@ img { border:none }
 }
 
 .topbar {
-  background:#efeff1;
-  padding:2px 0 12px 8px;
-  margin:0px;
+  margin: 2.8em 0;
 }
 
 .navbar {
+  font-size:12px;
   height:26px;
   border:none;
   background:#efeff1;
   padding:4px 8px 0 8px;
-  margin:0;
+  margin:3em 0;
 }
 
 .navbar .lt {
@@ -108,14 +100,14 @@ img { border:none }
 }
 
 #title {
-  padding:0.6em 0;
+  margin:2.9em 0 0.6em 0;
   display:block;
   width:100%;
 }
 
 #description {
   font-size:12px;
-  padding:0 0 2em 0;
+  margin: 2em 0 3em 0;
 }
 
 .minh {
@@ -175,8 +167,28 @@ img { border:none }
   color:#000;
 }
 
-#footer {
+#footer, #footer a {
+  line-height:14px;
+  text-align:left;
+  clear:both;
   font-size:10px;
-  color:#999;
+  color:#404040;
+  margin: 0 auto;
+}
+
+#footer {
   padding:1em 0;
+}
+
+/** Javascript alert */
+
+.alert {
+  text-align:center;
+  padding:20px;
+  margin:0px;
+  position:relative;
+  left:0px;
+  right:0px;
+  background:#ef4313;
+  color:#fff;
 }

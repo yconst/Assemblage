@@ -1,12 +1,14 @@
-<div id="tags">
-:hometag
-<div class="nest border-top nohide">
-foreach $root do if $children do
-<div class="tag" id="@slug-@index">@title</div>
-endif endforeach
-</div>
-foreach $root do if $children do
-  :children
-endif endforeach
-:options
+<div class="compact" id="tags">
+  <div class="nest border-top project-nest foreach $root do @slug-@index-nest :classes-nests-children endforeach">
+    <div class="tag project-tag foreach $root do @slug-@index-tag :classes-children endforeach" id="project">All Projects</div>
+  </div>
+  <div class="nest border-top parent-is-project foreach $root do @slug-@index-nest :classes-nests-children endforeach">
+    foreach $root do if $children do
+    <div class="tag project-tag :classes-children" id="@slug-@index">@title</div>
+    endif endforeach
+  </div>
+  foreach $root do if $children do
+    :nests-children
+  endif endforeach
+  :nest-options
 </div>

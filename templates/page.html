@@ -6,13 +6,15 @@
     <title>@title, @name's Portfolio </title>
     <link rel="alternate" type="application/atom+xml" href="@root_path/?/feed/"/>
     <link rel="stylesheet" href="@root_path/public/docs/css/page.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="@root_path/public/docs/css/preview-boxes.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="@root_path/public/docs/css/page-print.css" type="text/css" media="print"/>
     <link rel="stylesheet" href="@root_path/public/docs/fontkit/stylesheet.css" type="text/css"/>
   </head>
   <body>
+	:noscript
     <div id="outer-container"><div id="inner-container">
       :topbar
-	  <!--<div id="navbutton" class="invis"><img src="@root_path/images/arrow.png" alt="nav"/></div>-->
+	  :navbar
       :first-images
       :text-content
       :images
@@ -21,11 +23,13 @@
 	  :links
 	  :disqus
 	  :navbar
+	  :preview-boxes
       :footer
     </div></div>
 	:extra-html
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 	if !@no-justify do <script type="text/javascript" src="@root_path/public/docs/js/sweet-justice.min.js"></script> endif
+	<script type="text/javascript" src="@root_path/public/docs/js/jquery.feedpack.js"></script>
 	<script type="text/javascript" src="@root_path/public/docs/js/init-page.js"></script>
   </body>
 </html>

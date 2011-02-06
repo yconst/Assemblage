@@ -50,7 +50,8 @@ h4 {
 .topbar, .navbar, #navbutton,
 #comments-title, #comments-thread,
 #footer-creds, #downloads-title,
-#downloads, #pdfs-title, #pdfs {
+#downloads, #pdfs-title, #pdfs,
+#preview-container {
   display:none;
 }
 

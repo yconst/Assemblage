@@ -1,25 +1,24 @@
-if $children do
-  foreach $children do
+if $children do foreach $children do
     :preview-children
-  endforeach
-endif
+endforeach endif
 if !$children do
 <div class="project foreach $parents do @slug-@index endforeach foreach $parent do @slug-@index-self endforeach">
     if @linkout do
-      if @thumb do
-      <a href="@linkout"><img src="@thumb" class="projectThumb" alt=""/></a>
-      endif
-      <div class="projectTitle">
-      <a href="@linkout"><span class="projectDate">@date /</span> @title</a>
-      <a href="@linkout"><img src="@root_path/public/images/arrow_right.png" alt="link"/></a>
+      if @thumb do <a href="@linkout"><img src="@thumb" class="projectThumb" alt=""/></a> endif
+      <a href="@linkout">
+      <span class="projectTitle">
+      <span class="projectDate">@date /</span> @title
+      <img src="@root_path/public/images/arrow_right.png" alt="link"/>
+      </span>
+      </a>
     endif
     if !@linkout do
-      if @thumb do
-      <a href="@url"><img src="@thumb" class="projectThumb" alt=""/></a>
-      endif
-      <div class="projectTitle">
-        <a href="@url"><span class="projectDate">@date /</span> @title</a>
+      if @thumb do <a href="@url"><img src="@thumb" class="projectThumb" alt=""/></a> endif
+      <a href="@url">
+      <span class="projectTitle">
+      <span class="projectDate">@date /</span> @title
+      </span>
+      </a>
     endif
-    </div>
 </div>
 endif
