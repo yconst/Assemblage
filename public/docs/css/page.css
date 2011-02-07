@@ -15,7 +15,7 @@ body {
   line-height: 1.34em;
   text-decoration:none;
   margin:0;
-  background:#fbfbfb;
+  background:#f9f9f9;
 }
 
 a:hover {
@@ -49,13 +49,13 @@ h4 {
 
 img { border:none }
 
-.image {
+.image, .media {
   margin:2em 0;
+  width:100%;
 }
 
-.image img {
-  width:100%;
-  height:auto;
+.image img, .media object {
+  max-width:100%;
 }
 
 .invis {
@@ -171,7 +171,7 @@ img { border:none }
 }
 
 #outer-preview-container {
-  background:#efeff1;
+  background:#dfdfe1;
 }
 
 #inner-preview-container {
