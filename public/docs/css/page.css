@@ -71,6 +71,7 @@ img { border:none }
 
 #inner-container {
   text-align:left;
+  width: expression(document.body.clientWidth > 960? "960px": "auto" ); /* IE6 hack...*/
   max-width:960px;
   min-width:480px;
   margin:0 auto;

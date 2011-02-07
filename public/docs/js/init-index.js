@@ -41,8 +41,8 @@ $(document).ready(function() {
       // Transparent layer
       clearTimeout(_tags.data('actproj'));
       _tags.data('actproj',setTimeout(function() {
-      $(".project").not("."+_id).removeClass("projectActive").find(".projectFrame").hide();
-      $( "."+_id ).addClass("projectActive").find(".projectFrame").show();
+      $(".project").not("."+_id).removeClass("projectActive");
+      $( "."+_id ).addClass("projectActive");
       },600));
       // Tooltip fadein
       _this.data('tipdelay',setTimeout(function() {_this.find('#tip').fadeIn(200)},800));
@@ -55,7 +55,7 @@ $(document).ready(function() {
       _this=$(this);
       // Transparent layer
       clearTimeout(_tags.data('actproj'));
-      $(".project").removeClass("projectActive").find(".projectFrame").hide();
+      $(".project").removeClass("projectActive");
       // Tooltip fadeout
       clearTimeout(_this.data('tipdelay'));
       _this.find('#tip').fadeOut(420);
@@ -149,15 +149,9 @@ $(document).ready(function() {
    });
    
    // Show/hide project title and summary
-   $('.projectFrame').hide();
+
    
-   $('.project').mouseenter(function() {
-      $(this).find('.projectFrame').fadeIn(80);
-   }).mouseleave(function() {
-      $(this).find('.projectFrame').fadeOut(80);
-   }).click(function() {
-      $(this).find('.projectFrame').fadeOut(80);
-   });
+
    
    // Pack project thumbnails
    $('#preview-container').feedpack({
@@ -180,7 +174,7 @@ $(document).ready(function() {
    _title.add(_footer).each(function() {
       var _w = $(window).width(),
           _n = parseInt(_w/_c);
-      $(this).width(_n*_c);
+      $(this).width(_n*_c-20);
    });
    
    // Update title width on window resize.
@@ -191,7 +185,7 @@ $(document).ready(function() {
          _it.data("rsz", setTimeout(function() {
             var _w = $(window).width(),
                 _n = parseInt(_w/_c);
-            _it.width(_n*_c);
+            _it.width(_n*_c-20);
          }, 200) );
       });
    });

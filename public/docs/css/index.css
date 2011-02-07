@@ -45,7 +45,7 @@ h4 {
 
 /* Layout */
 
-html { overflow-y: scroll; overflow-x: hidden }
+html { overflow-y: scroll; }
 
 body { margin: 8px 0 }
 
@@ -53,16 +53,24 @@ img { border: none }
 
 #outer-container {
   text-align:center;
+  min-width:640px;
+}
+
+#title {
+  min-width:620px;
+  text-align:left;
+  margin:0 auto;
+  padding:2.8em 0;
+  border-bottom:1px solid #ddd;
 }
 
 #tags {
   width:100%;
   display:none;
-  min-width:640px;
+  
   position:relative;
   margin:1px auto;
   text-align:left;
-  border-top:1px solid #ddd;
 }
 
 .tag {
@@ -84,14 +92,14 @@ img { border: none }
 .nest {
   display:block;
   float:left;
-  width:308px;
-  margin:0 12px 0 0;
+  width:300px;
+  margin:0 10px 0 10px;
   padding:5px 0 20px 0;
 }
 
 .compact .nest {
-  width:148px;
-  margin:0 12px 0 0;
+  width:140px;
+  margin:0 10px 0 10px;
   padding:5px 0 5px 0;
   
 }
@@ -155,7 +163,7 @@ img { border: none }
 
 .options {
   position:absolute;
-  right:0px;
+  right:10px;
   bottom:2px;
   padding:2px;
 }
@@ -175,12 +183,6 @@ img { border: none }
   background:#fff;
 }
 
-#title {
-  text-align:left;
-  margin:3em auto;
-  padding:0 6px;
-}
-
 #footer, #footer a {
   text-align:left;
   clear:both;
@@ -191,6 +193,10 @@ img { border: none }
 
 #footer {
   padding:1em 0;
+}
+
+.invis1 {
+  display:none;
 }
 
 /** Javascript alert */

@@ -5,18 +5,6 @@ $(document).ready(function() {
    // property is set.
    if (navigator.userAgent.toLowerCase().match('chrome'))
       document.getElementById('description').className = document.getElementById('description').className.replace(" minh", "");
-      
-   // Show/hide project title and summary
-   $('.projectTitle').hide();
-   
-   // Mouse enter/leave behavior (show title & summary).
-   $('.project').mouseenter(function() {
-      $(this).find('.projectTitle').slideDown(80);
-   }).mouseleave(function() {
-      $(this).find('.projectTitle').slideUp(80);
-   }).click(function() {
-      $(this).find('.projectTitle').slideUp(80);
-   });
    
    // Pack project thumbnails
    $('#preview-container').feedpack({
