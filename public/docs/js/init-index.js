@@ -6,9 +6,10 @@ $(document).ready(function() {
    // Useful variables
    var _c = 320,
        _title = $('#title'),
-       _tags=$('#tags'),
-       _home=$('#project').find('img'),
-       _footer = $('#footer');
+       _tags = $('#tags'),
+       _options = $(".options"),
+       _footer = $('#footer'),
+       clickedOnOptions = false;
    
    // Pack the navigation elements (tag groups)
    $('.nest:not(.nohide)').slice(2).addClass('nosort').addClass("nestInvis");
@@ -30,6 +31,9 @@ $(document).ready(function() {
       $('<div id="tip">'+_l+_sfx+'</div>').appendTo(_this);
    });
    
+   //Fade out options after some delay...
+   _options.data('invis',setTimeout(function() {_options.fadeOut(500)},2600));
+   
    // Tag mouseover and mouseout behavior
    $(".tag").mouseenter(function() {
       _this=$(this);
@@ -37,12 +41,12 @@ $(document).ready(function() {
       // Transparent layer
       clearTimeout(_tags.data('actproj'));
       _tags.data('actproj',setTimeout(function() {
-      $(".project").not("."+_id).removeClass("projectActive").find(".projectTitle").hide();
-      $( "."+_id ).addClass("projectActive").find(".projectTitle").show();
+      $(".project").not("."+_id).removeClass("projectActive").find(".projectFrame").hide();
+      $( "."+_id ).addClass("projectActive").find(".projectFrame").show();
       },600));
       // Tooltip fadein
       _this.data('tipdelay',setTimeout(function() {_this.find('#tip').fadeIn(200)},800));
-      //Expand navigation
+      // Expand navigation
       clearTimeout(_tags.data('compacttags'));
       if (_tags.is(".compact")) {
          _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").feedpack()},240));
@@ -51,23 +55,39 @@ $(document).ready(function() {
       _this=$(this);
       // Transparent layer
       clearTimeout(_tags.data('actproj'));
-      $(".project").removeClass("projectActive").find(".projectTitle").hide();
+      $(".project").removeClass("projectActive").find(".projectFrame").hide();
       // Tooltip fadeout
       clearTimeout(_this.data('tipdelay'));
       _this.find('#tip').fadeOut(420);
    });
    
    _tags.mouseenter(function() {
+      clearTimeout(_options.data('invis'));
       clearTimeout(_tags.data('compacttags'));
+      _options.fadeIn(200);
    }).mouseleave(function() {
       clearTimeout(_tags.data('expandtags'));
       if (!_tags.is(".compact")) {
          _tags.data('compacttags',setTimeout(function() {_tags.addClass("compact").feedpack()},800));
       }
+      _options.data('invis',setTimeout(function() {_options.fadeOut(500)},800));
+   }).click(function() {
+      // Expand navigation only if click was outside the options (sorting)
+      // area.
+      if (!clickedOnOptions) {
+         clearTimeout(_tags.data('compacttags'));
+         if (_tags.is(".compact")) {
+            _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").feedpack()},100));
+         }
+      }
+      clickedOnOptions = false;
+      _options.fadeIn(200);
    });
    
    $(".options").mouseover(function() {
       clearTimeout(_tags.data('expandtags'));
+   }).click(function() {
+      clickedOnOptions = true;
    })
    
    // Clicking tags
@@ -128,15 +148,15 @@ $(document).ready(function() {
       $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
    });
    
-   //Show/hide project title and summary
-   $('.projectTitle').hide();
+   // Show/hide project title and summary
+   $('.projectFrame').hide();
    
    $('.project').mouseenter(function() {
-      $(this).find('.projectTitle').slideDown(80);
+      $(this).find('.projectFrame').fadeIn(80);
    }).mouseleave(function() {
-      $(this).find('.projectTitle').slideUp(80);
+      $(this).find('.projectFrame').fadeOut(80);
    }).click(function() {
-      $(this).find('.projectTitle').slideUp(80);
+      $(this).find('.projectFrame').fadeOut(80);
    });
    
    // Pack project thumbnails

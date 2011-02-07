@@ -13,14 +13,13 @@
 }
 
 .project {
-  margin:1px;
-  width:318px;
+  margin:0;
+  width:320px;
   float:left;
   background-color:#efeff1;
 }
 
-.projectActive .projectTitle {
-  display:inline;
+.projectActive .projectFrame {
   filter:alpha(opacity=70);
   -moz-opacity:0.7;
   -khtml-opacity: 0.7;
@@ -35,20 +34,24 @@
   width:100%;
 }
 
-.projectTitle {
+.projectFrame {
   display:none;
   position:absolute;
   top:0px;
   background:#fff;
-  font-size:13px;
-  width:306px;
-  height:64%;
-  max-height:160px;
-  padding:18px 6px;
+  width:320px;
+  height:100%;
   filter:alpha(opacity=90);
   -moz-opacity:0.9;
   -khtml-opacity: 0.9;
   opacity: 0.9;
+}
+
+.projectTitle {
+  position:absolute;
+  top:20px;
+  left:6px;
+  font-size:13px;
 }
 
 .project:hover a {

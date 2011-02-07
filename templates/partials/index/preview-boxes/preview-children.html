@@ -6,18 +6,18 @@ if !$children do
     if @linkout do
       if @thumb do <a href="@linkout"><img src="@thumb" class="projectThumb" alt=""/></a> endif
       <a href="@linkout">
-      <span class="projectTitle">
+      <span class="projectFrame"><span class="projectTitle">
       <span class="projectDate">@date /</span> @title
       <img src="@root_path/public/images/arrow_right.png" alt="link"/>
-      </span>
+      </span></span>
       </a>
     endif
     if !@linkout do
       if @thumb do <a href="@url"><img src="@thumb" class="projectThumb" alt=""/></a> endif
       <a href="@url">
-      <span class="projectTitle">
+      <span class="projectFrame"><span class="projectTitle">
       <span class="projectDate">@date /</span> @title
-      </span>
+      </span></span>
       </a>
     endif
 </div>

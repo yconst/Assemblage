@@ -45,7 +45,7 @@ h4 {
 
 /* Layout */
 
-html { overflow-y: scroll }
+html { overflow-y: scroll; overflow-x: hidden }
 
 body { margin: 8px 0 }
 
@@ -62,7 +62,7 @@ img { border: none }
   position:relative;
   margin:1px auto;
   text-align:left;
-  background:#efeff1;
+  border-top:1px solid #ddd;
 }
 
 .tag {
@@ -74,7 +74,7 @@ img { border: none }
 }
 
 .compact .tag {
-  color: #404040;
+  color: #6e6e6e;
 }
 
 .tag:hover {
@@ -85,14 +85,14 @@ img { border: none }
   display:block;
   float:left;
   width:308px;
-  margin:10px 6px;
-  padding:4px 0 12px 0;
+  margin:0 12px 0 0;
+  padding:5px 0 20px 0;
 }
 
 .compact .nest {
   width:148px;
-  margin:0 6px;
-  padding:3px 0;
+  margin:0 12px 0 0;
+  padding:5px 0 5px 0;
   
 }
 
@@ -108,9 +108,6 @@ img { border: none }
   display:none;
 }
 
-.border-top {
-  border-top:1px solid #888;
-}
 
 .compact .border-top {
   border-top:none;
@@ -158,8 +155,8 @@ img { border: none }
 
 .options {
   position:absolute;
-  right:6px;
-  bottom:0px;
+  right:0px;
+  bottom:2px;
   padding:2px;
 }
 
@@ -181,6 +178,7 @@ img { border: none }
 #title {
   text-align:left;
   margin:3em auto;
+  padding:0 6px;
 }
 
 #footer, #footer a {
