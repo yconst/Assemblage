@@ -41,11 +41,11 @@ $(document).ready(function() {
       _this=$(this);
       _id=this.id;
       // Transparent layer
-      /**clearTimeout(_tags.data('actproj'));
+      clearTimeout(_tags.data('actproj'));
       _tags.data('actproj',setTimeout(function() {
       $(".project").not("."+_id).removeClass("projectActive");
       $( "."+_id ).addClass("projectActive");
-      },600));*/
+      },600));
       // Tooltip fadein
       _this.data('tipdelay',setTimeout(function() {_this.find('#tip').fadeIn(200)},800));
       // Expand navigation if not expanded already.
@@ -56,8 +56,8 @@ $(document).ready(function() {
    }).mouseleave(function() {
       _this=$(this);
       // Transparent layer
-      /**clearTimeout(_tags.data('actproj'));
-      $(".project").removeClass("projectActive");*/
+      clearTimeout(_tags.data('actproj'));
+      $(".project").removeClass("projectActive");
       // Tooltip fadeout
       clearTimeout(_this.data('tipdelay'));
       _this.find('#tip').fadeOut(420);
