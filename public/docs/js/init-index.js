@@ -1,15 +1,17 @@
 // Initialize stuff after Document is ready.
 $(document).ready(function() {
    
-   $('.project').addClass('invis1');
-   
    // Useful variables
-   var _c = 320,
-       _title = $('#title'),
-       _tags = $('#tags'),
-       _options = $(".options"),
-       _footer = $('#footer'),
+   var _c = 320,                 // The column width used throughout the document.
+       _title = $('#title'),     // The title
+       _tags = $('#tags'),       // The navigation menu
+       _options = $(".options"), // The options (sorting) div
+       _footer = $('#footer'),   // The footer
+       
        clickedOnOptions = false;
+   
+   // Hide project preview boxes.
+   $('.project').addClass('invis1');
    
    // Pack the navigation elements (tag groups)
    $('.nest:not(.nohide)').slice(2).addClass('nosort').addClass("nestInvis");
@@ -39,14 +41,14 @@ $(document).ready(function() {
       _this=$(this);
       _id=this.id;
       // Transparent layer
-      clearTimeout(_tags.data('actproj'));
+      /**clearTimeout(_tags.data('actproj'));
       _tags.data('actproj',setTimeout(function() {
       $(".project").not("."+_id).removeClass("projectActive");
       $( "."+_id ).addClass("projectActive");
-      },600));
+      },600));*/
       // Tooltip fadein
       _this.data('tipdelay',setTimeout(function() {_this.find('#tip').fadeIn(200)},800));
-      // Expand navigation
+      // Expand navigation if not expanded already.
       clearTimeout(_tags.data('compacttags'));
       if (_tags.is(".compact")) {
          _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").feedpack()},240));
@@ -54,26 +56,28 @@ $(document).ready(function() {
    }).mouseleave(function() {
       _this=$(this);
       // Transparent layer
-      clearTimeout(_tags.data('actproj'));
-      $(".project").removeClass("projectActive");
+      /**clearTimeout(_tags.data('actproj'));
+      $(".project").removeClass("projectActive");*/
       // Tooltip fadeout
       clearTimeout(_this.data('tipdelay'));
       _this.find('#tip').fadeOut(420);
    });
    
+   // Tag area mouseover and mouseout behavior.
    _tags.mouseenter(function() {
+      // Clear compact timeout and options fadeout timeout
       clearTimeout(_options.data('invis'));
       clearTimeout(_tags.data('compacttags'));
       _options.fadeIn(200);
    }).mouseleave(function() {
+      //Compact navigation
       clearTimeout(_tags.data('expandtags'));
       if (!_tags.is(".compact")) {
          _tags.data('compacttags',setTimeout(function() {_tags.addClass("compact").feedpack()},800));
       }
       _options.data('invis',setTimeout(function() {_options.fadeOut(500)},800));
    }).click(function() {
-      // Expand navigation only if click was outside the options (sorting)
-      // area.
+      // Expand navigation only if click was outside the options (sorting) area.
       if (!clickedOnOptions) {
          clearTimeout(_tags.data('compacttags'));
          if (_tags.is(".compact")) {
@@ -81,9 +85,11 @@ $(document).ready(function() {
          }
       }
       clickedOnOptions = false;
+      // Fade options pane in
       _options.fadeIn(200);
    });
    
+   // Cancel tags panel expansion if clicked on the options pane.
    $(".options").mouseover(function() {
       clearTimeout(_tags.data('expandtags'));
    }).click(function() {
@@ -111,6 +117,7 @@ $(document).ready(function() {
       $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
    });
    
+   // Clicking on 'home' tag
    $("#project").click(function() {
       _this = $(this);
       
@@ -133,25 +140,21 @@ $(document).ready(function() {
    //$('.project').tsort('.projectDate', {order:'desc'});
    
    // Different Sorting Options
+   // 1. Date
    $('#sbd').click(function() {
       $('.project:not(#control)').tsort('.projectDate', {order:'desc'});
       $('#preview-container').feedpack();
    });
-   
+   // 2. Original
    $('#sbc').click(function() {
       $('.project:not(#control)').tsort('.projectCat', {order:'asc'});
       $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
    });
-   
+   // 3. Random. Fun.
    $('#sbr').click(function() {
       $('.project:not(#control)').tsort("",{order:"rand"});
       $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
    });
-   
-   // Show/hide project title and summary
-
-   
-
    
    // Pack project thumbnails
    $('#preview-container').feedpack({
@@ -171,6 +174,9 @@ $(document).ready(function() {
       }
    }).show();
    
+   // Re-calculate the widths of the title and footer after a window resize.
+   // Please note that the 20 pixels subtracted from the width is beacuse of the
+   // preview boxes' margins, so that it looks aligned.
    _title.add(_footer).each(function() {
       var _w = $(window).width(),
           _n = parseInt(_w/_c);

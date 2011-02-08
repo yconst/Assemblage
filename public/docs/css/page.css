@@ -29,7 +29,7 @@ p {
 h2 {
   font-size:16px;
   font-weight:300;
-  margin:0.2em 0;
+  margin:0.4em 0;
 }
 
 h3 {
@@ -127,13 +127,13 @@ img { border:none }
 
 .black-frame {
   background:#000;
-  padding:12px;
+  padding:16px;
   color:#eee;
   margin:0 0 12px 0;
 }
 
 .black-frame .item {
-  margin:5px 12px;
+  margin:8px 12px;
 }
 
 .black-frame a {
@@ -144,13 +144,13 @@ img { border:none }
 
 .grey-frame {
   background:#efeff1;
-  padding:12px;
+  padding:16px;
   color:#404040;
   margin:0 0 12px 0;
 }
 
 .grey-frame .item {
-  margin:5px 12px;
+  margin:8px 12px;
 }
 
 .grey-frame a {
