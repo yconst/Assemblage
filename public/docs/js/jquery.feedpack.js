@@ -49,6 +49,7 @@
 	  // Store position-related values
 	  _disp=_container.css('display');
 	  _vis=_container.css('visibility');
+	  // Hide the container so that we can do all sorts of tricks to it...
 	  _container.css({ display: 'block', width: '', visibility: 'hidden' });
 	  _colWidth = _o.columnWidth === undefined ? _elements.outerWidth(true) : _o.columnWidth;
 	  _columns = Math.floor(_container.width() / _colWidth);
@@ -113,7 +114,7 @@
 	  // Also restore original position information.
 	  _ccss={display: _disp, visibility: _vis};
 	  if (_o.forceWidth) {
-		_ccss.width=_o.containerWidthStep? _o.containerWidthStep*(parseInt((_columns+0.9999)*_colWidth/_o.containerWidthStep)) : _columns*_colWidth;
+		_ccss.width=_o.containerWidthStep? _o.containerWidthStep*(parseInt(_container.width()/_o.containerWidthStep)) : _columns*_colWidth;
 	  }
 	  _container.css(_ccss);
 	  _ccss={height: Math.max.apply(Math, _currentTop)};
