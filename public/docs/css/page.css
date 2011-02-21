@@ -50,7 +50,7 @@ h4 {
 img { border:none }
 
 .image, .media {
-  margin:2em 0;
+  margin:2.4em 0;
   width:100%;
 }
 
@@ -84,6 +84,7 @@ img { border:none }
 .rt {
   font-size:10px;
   padding:8px 0;
+  margin:1.6em 0;
   width:100%;
   border-top:1px solid #ddd;
 }
@@ -97,7 +98,7 @@ img { border:none }
 
 #description {
   font-size:12px;
-  margin: 2em 0 3em 0;
+  margin: 2em 0 2em 0;
 }
 
 .minh {
