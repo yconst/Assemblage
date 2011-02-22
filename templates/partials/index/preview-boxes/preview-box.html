@@ -1,22 +1,15 @@
 
 if !@is_current do
-<div class="project foreach $parents do @slug-@index-@siblings_count endforeach foreach $parent do @slug-@index-@siblings_count-self endforeach">
-    if @linkout do
-      if @thumb do <a href="@linkout"><img src="@thumb" class="projectThumb" alt=""/></a> endif
-      <a href="@linkout">
-      <span class="projectFrame"><span class="projectTitle">
-      <span class="projectDate">@date</span><br /> @title
-      <img src="@root_path/public/images/arrow_right.png" alt="link"/>
-      </span></span>
-      </a>
-    endif
-    if !@linkout do
+<div class="project @slug-@index-@siblings_count foreach $parents do @slug-@index-@siblings_count endforeach">
       if @thumb do <a href="@url"><img src="@thumb" class="projectThumb" alt=""/></a> endif
-      <a href="@url">
+      if !@linkout do <a href="@url"> endif
+      if @linkout do <a href="@linkout"> endif
       <span class="projectFrame"><span class="projectTitle">
-      <span class="projectDate">@date</span><br /> @title
+      if @date do <span class="projectDate">@date</span><br /> endif
+      @title
+      if @linkout do <img src="@root_path/public/images/arrow_right.png" alt="link"/> endif
       </span></span>
       </a>
-    endif
 </div>
 endif
+

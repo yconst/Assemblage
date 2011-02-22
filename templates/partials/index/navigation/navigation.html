@@ -8,7 +8,7 @@
     endif endforeach
   </div>
   foreach $root do if $children do
-    :nests-children
+    if !@thumb do :nests-children endif
   endif endforeach
   :nest-options
 </div>

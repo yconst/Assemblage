@@ -4,5 +4,5 @@ foreach $children do if $children do
 endif endforeach
 </div>
 foreach $children do if $children do
-  :nests-children
+  if !@thumb do :nests-children endif
 endif endforeach
