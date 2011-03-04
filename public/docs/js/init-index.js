@@ -189,18 +189,18 @@ $(document).ready(function() {
       }
    }).show();
    
-   // Re-calculate the widths of the title and footer after a window resize.
+   // Re-calculate the widths of the title, description and footer after a window resize.
    // Please note that the 20 pixels subtracted from the width is beacuse of the
    // preview boxes' margins, so that it looks aligned.
-   _title.add(_footer).each(function() {
+   _title.add(_footer).add('#desc').each(function() {
       var _w = $(window).width(),
           _n = parseInt(_w/_c);
       $(this).width(_n*_c-20);
    });
    
-   // Update title width on window resize.
+   // Update title, description and footer width on window resize.
    $(window).resize(function() {
-      _title.add(_footer).each(function() {
+      _title.add(_footer).add('#desc').each(function() {
          var _it = $(this);
          clearTimeout(_it.data("rsz"));
          _it.data("rsz", setTimeout(function() {

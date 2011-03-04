@@ -64,6 +64,17 @@ img { border: none }
   border-bottom:1px solid #ddd;
 }
 
+#desc {
+  text-align:left;
+  margin:0 auto;
+  padding:0 0 1.8em 0;
+  border-bottom:1px solid #ddd;
+}
+
+#desc p {
+  width:480px;
+}
+
 #tags {
   width:100%;
   display:none;
