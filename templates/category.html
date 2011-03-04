@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="@root_path/public/docs/fontkit/stylesheet.css" type="text/css"/>
     <link rel="shortcut icon" href="@root_path/content/favicon.ico" />
   </head>
-  <body>
+  <body  if @background do style="background-image:url('@root_path/content/@background');" endif>
     :noscript
     <div id="outer-container">
       <div id="title"><h3><a href="@root_path/about/">@name / @profession</a></h3></div>
