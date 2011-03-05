@@ -26,7 +26,7 @@
       :first-html
       :first-images
       :text-content
-	  if @fb-admin do :fb-like endif
+	  :fb-like
 	  
       :images
 	  :video
@@ -38,7 +38,7 @@
 	  :links
 	  
 	  :disqus
-	  if @fb-admin do :fb-like endif
+	  if $images do :fb-like endif
 	  
 	  :navbar
     </div></div>
