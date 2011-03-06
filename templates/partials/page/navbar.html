@@ -1,6 +1,10 @@
-<div class="rt"><a href="@root_path">Home</a>
+<div class="rt">
+    <a href="@root_path">Home</a>
     <a href="http://www.addthis.com/bookmark.php" 
         style="text-decoration:none;" 
         class="addthis_button">Share this page
     </a>
+    if @short-url do
+    <a href="@short-url">Short URL<span class="shorturl"> @short-url</span></a>
+    endif
 </div>
