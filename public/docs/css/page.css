@@ -91,7 +91,17 @@ img { border:none }
 }
 
 .rt a {
-  margin:0 1em 0 0;
+  margin:0 1.2em 0 0;
+}
+
+.rt a .shorturl {
+  display:none;
+  color: #999;
+}
+
+.rt a:hover .shorturl {
+  display:inline;
+  text-decoration:underline;
 }
 
 #title {
