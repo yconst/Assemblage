@@ -54,7 +54,15 @@
 	if !@no-justify do <script type="text/javascript" src="@root_path/public/docs/js/sweet-justice.min.js"></script> endif
 	<script type="text/javascript" src="@root_path/public/docs/js/jquery.feedpack.js"></script>
 	<script type="text/javascript" src="@root_path/public/docs/js/init-page.js"></script>
-        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
+        <script type="text/javascript">
+	// Sharing button config...
+	  var addthis_config = {
+	    ui_offset_top: 12,
+	    ui_delay: 300,
+	    ui_use_css: false
+	  }
+	</script>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
 	:extra-html
   </body>
 </html>

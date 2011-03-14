@@ -6,7 +6,21 @@ $(document).ready(function() {
    if (navigator.userAgent.toLowerCase().match('chrome'))
       document.getElementById('description').className = document.getElementById('description').className.replace(" minh", "");
    
-   // Pack project thumbnails
+   // Fade in and out for short url
+   $('.shorturllabel').css({opacity : 0});
+   $('.shorturl').mouseover(function() {
+      clearTimeout($(this).data('time-mouseout'));
+      $(this).children('.shorturllabel').show().animate({left : '10px', opacity : 1}, 400);
+   }).mouseout(function() {
+      var _this = $(this),
+          _child = _this.children('.shorturllabel');
+      clearTimeout($(this).data('time-mouseout'));
+      _this.data('time-mouseout', setTimeout(function() {
+         _child.animate({left : '0px', opacity : 0}, 400, function() {_child.hide()});
+      }, 500));
+   });
+
+   // Pack project thumbnails beneath current project.
    $('#preview-container').feedpack({
       itemClass: '.project:not(.nosort)',
       animate : true,
@@ -21,4 +35,6 @@ $(document).ready(function() {
          });
       }
    }).show();
+   
+   
 });

@@ -1,10 +1,10 @@
 <div class="rt">
-    <a href="@root_path">Home</a>
-    <a href="http://www.addthis.com/bookmark.php" 
+    <span class="navitem"><a href="@root_path">Home</a></span>
+    <span class="navitem"><a href="http://www.addthis.com/bookmark.php" 
         style="text-decoration:none;" 
         class="addthis_button">Share this page
-    </a>
+    </a></span>
     if @short-url do
-    <a href="@short-url">Short URL<span class="shorturl"> @short-url</span></a>
+    <span class="navitem shorturl"><a href="@short-url">Short URL</a><span class="shorturllabel"> @short-url</span></span>
     endif
 </div>
