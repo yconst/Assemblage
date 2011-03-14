@@ -1,9 +1,9 @@
 
 if !@is_current do
 <div class="project @slug-@index-@siblings_count foreach $parents do @slug-@index-@siblings_count endforeach">
-      if @thumb do <a href="@url"><img src="@thumb" class="projectThumb" alt=""/></a> endif
       if !@linkout do <a href="@url"> endif
       if @linkout do <a href="@linkout"> endif
+      if @thumb do <img src="@thumb" class="projectThumb" alt=""/> endif
       <span class="projectFrame"><span class="projectTitle">
       if @date do <span class="projectDate">@date</span><br /> endif
       @title
