@@ -1,3 +1,35 @@
+// Gallery init.
+$(function() {
+
+  // Gallery above text
+  // don't init gallery if it consists of a single photo
+  if($("div.a-image").length > 1) {
+    // wrap images
+    $("div.a-image").wrapAll("<div id='a-image-wrapper'><div id='a-image-holder'></div></div>");
+    $("div.a-image").show();
+    
+    // init gallery: Gallery.init(imageHolder, imageWrapperWidth, imageCountHolder, nextButton, prevButton)
+    Gallery.init($("div#a-image-holder"), $("div#a-image-wrapper"), $("p#a-gallery-count")[0], $("a#next-a-image"), $("a#previous-a-image"));
+    
+    // better to show than to hide... (';
+    $("p.a-gal-nav, a.a-gal-nav").show();
+  }
+  
+  // Gallery below text
+  // don't init gallery if it consists of a single photo
+  if($("div.b-image").length > 1) {
+    // wrap images
+    $("div.b-image").wrapAll("<div id='b-image-wrapper'><div id='b-image-holder'></div></div>");
+    $("div.b-image").show();
+    
+    // init gallery: Gallery.init(imageHolder, imageWrapperWidth, imageCountHolder, nextButton, prevButton)
+    Gallery.init($("div#b-image-holder"), $("div#b-image-wrapper"), $("p#b-gallery-count")[0], $("a#next-b-image"), $("a#previous-b-image"));
+
+    // better to show than to hide... (';
+    $("p.b-gal-nav, a.b-gal-nav").show();
+  }
+});
+
 // Initialize stuff after Document is ready.
 $(document).ready(function() {
    

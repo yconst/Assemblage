@@ -195,6 +195,18 @@ pre {
   margin:4em auto 0 auto;
 }
 
+/** Image Gallery */
+
+div#a-image-wrapper, div#b-image-wrapper { overflow: hidden; width: 100%; background: #dedede; margin: 1em 0 2.4em 0}
+div#a-image-holder, div#b-image-holder { width: 100000000px; }
+div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin: 0px}
+.a-gal-nav, .b-gal-nav {
+  display:none;
+  cursor:pointer;
+  margin:0 1em 0 0;
+  font-size:12px;
+}
+
 /** Javascript alert */
 
 .alert {
