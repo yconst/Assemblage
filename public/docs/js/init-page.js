@@ -9,10 +9,10 @@ $(function() {
     $("div.a-image").show();
     
     // init gallery: Gallery.init(imageHolder, imageWrapperWidth, imageCountHolder, nextButton, prevButton)
-    Gallery.init($("div#a-image-holder"), $("div#a-image-wrapper"), $("p#a-gallery-count")[0], $("a#next-a-image"), $("a#previous-a-image"));
+    Gallery.init($("div#a-image-holder"), $("div#a-image-wrapper"), $("span#a-gallery-count")[0], $("a#next-a-image"), $("a#previous-a-image"));
     
     // better to show than to hide... (';
-    $("p.a-gal-nav, a.a-gal-nav").show();
+    $(".a-gal-nav").show();
   }
   
   // Gallery below text
@@ -23,10 +23,10 @@ $(function() {
     $("div.b-image").show();
     
     // init gallery: Gallery.init(imageHolder, imageWrapperWidth, imageCountHolder, nextButton, prevButton)
-    Gallery.init($("div#b-image-holder"), $("div#b-image-wrapper"), $("p#b-gallery-count")[0], $("a#next-b-image"), $("a#previous-b-image"));
+    Gallery.init($("div#b-image-holder"), $("div#b-image-wrapper"), $("span#b-gallery-count")[0], $("a#next-b-image"), $("a#previous-b-image"));
 
     // better to show than to hide... (';
-    $("p.b-gal-nav, a.b-gal-nav").show();
+    $(".b-gal-nav").show();
   }
 });
 

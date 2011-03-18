@@ -37,14 +37,22 @@ Gallery = {
     // it's 'load' event.
     // http://stackoverflow.com/questions/318630/get-real-image-width-and-height-with-javascript-in-safari-chrome
     // What a mess.
-    $(imageHolder).find('img').each(function() {
+    // Not only that, but make also make sure that the height
+    // of the container is properly set after all images have
+    // loaded and according to the current image's height.
+    var _this = this;
+    $(imageHolder).find('img').each(function(i) {
         var img = $(this)[0];
+        var index = i;
         $('<img/>').attr('src', $(img).attr('src')).load(function() {
           $(img).css({
             'width': '100%',
             'max-width': this.width,
             'height': 'auto'
           });
+          if (index == _this.currentImage) {
+            _this.imageWrapper.css({height: img.height + "px"});
+          }
         });
         var src = img.src; 
         // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
@@ -68,13 +76,16 @@ Gallery = {
       return false;
     });
     // Bind to window resize. Debounced style.
-    var _this = this;
-    var _wrapper = $(this.imageWrapper);
+    var _this = this,
+        _wrapper = $(this.imageWrapper),
+        _holder = $(this.imageHolder),
+        _c = this.currentImage;
     $(window).resize(function() {
       clearTimeout(_wrapper.data("resize-event"));
       _wrapper.data("resize-event", setTimeout(function() {
-        _wrapper.find(".image").animate({'width' : _wrapper.width()}, 600);
-        _this.gotoImage(_this.currentImage);
+        _wrapper.find(".image").css({'width' : _wrapper.width()}, 600);
+        _holder.css({marginLeft: (_c * _wrapper.width()) * -1 + "px"});
+        _wrapper.animate({height: _holder.find('img')[_c].height + "px"}, { duration: 400, queue: false });
       }, 200) );
     });
   },
@@ -110,7 +121,9 @@ Gallery = {
     this.imageHolder.animate({
       marginLeft: (num * this.imageWrapper.width()) * -1 + "px"
     }, { duration: 600, queue: false });
-    
+    this.imageWrapper.animate({
+      height: this.imageHolder.find('img')[num].height + "px"
+    }, { duration: 400, queue: false });
     // skip attempt to animate description holder if it does not exist
     if(!this.descriptionHolder) return;
     

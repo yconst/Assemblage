@@ -139,6 +139,9 @@ pre {
   color:#efaf18;
 }
 
+h2#links-title, h2#downloads-title, h2#comments-title, h2#pdfs-title {
+  margin:0.8em 0;
+}
 /** Black Frame */
 
 .black-frame {
@@ -197,13 +200,13 @@ pre {
 
 /** Image Gallery */
 
-div#a-image-wrapper, div#b-image-wrapper { overflow: hidden; width: 100%; background: #dedede; margin: 1em 0 2.4em 0}
+div#a-image-wrapper, div#b-image-wrapper { overflow: hidden; width: 100%; margin: 0.4em 0 2.4em 0}
 div#a-image-holder, div#b-image-holder { width: 100000000px; }
 div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin: 0px}
 .a-gal-nav, .b-gal-nav {
   display:none;
   cursor:pointer;
-  margin:0 1em 0 0;
+  margin:0 1.2em 0 0;
   font-size:12px;
 }
 
