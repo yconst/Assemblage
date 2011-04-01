@@ -114,7 +114,7 @@ $(document).ready(function() {
       $( "."+_id ).removeClass("nosort").fadeIn(400);
       
       _tags.feedpack();
-      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+      $('#preview-container').feedpack({animate: true, animationOptions: {queue:false}, itemClass: '.project:not(.nosort)'});
    });
    
    // Clicking on 'home' tag
@@ -129,7 +129,7 @@ $(document).ready(function() {
       
       $( "."+this.id ).removeClass("nosort").fadeIn(400);
       _tags.feedpack();
-      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+      $('#preview-container').feedpack({animate: true, animationOptions: {queue:false}, itemClass: '.project:not(.nosort)'});
    });
    
    // Save original element order into a new invisible div and Sort using TinySort
