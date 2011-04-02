@@ -9,7 +9,8 @@ $(function() {
     $("div.a-image").show();
     
     // init gallery: Gallery.init(imageHolder, imageWrapperWidth, imageCountHolder, nextButton, prevButton)
-    Gallery.init($("div#a-image-holder"), $("div#a-image-wrapper"), $("span#a-gallery-count")[0], $("a#next-a-image"), $("a#previous-a-image"));
+    var g1 = Gallery();
+    g1.init($("div#a-image-holder"), $("div#a-image-wrapper"), $("span#a-gallery-count")[0], $("a#next-a-image"), $("a#previous-a-image"));
     
     // better to show than to hide... (';
     $(".a-gal-nav").show();
@@ -23,10 +24,24 @@ $(function() {
     $("div.b-image").show();
     
     // init gallery: Gallery.init(imageHolder, imageWrapperWidth, imageCountHolder, nextButton, prevButton)
-    Gallery.init($("div#b-image-holder"), $("div#b-image-wrapper"), $("span#b-gallery-count")[0], $("a#next-b-image"), $("a#previous-b-image"));
+    var g2 = Gallery();
+    g2.init($("div#b-image-holder"), $("div#b-image-wrapper"), $("span#b-gallery-count")[0], $("a#next-b-image"), $("a#previous-b-image"));
 
     // better to show than to hide... (';
     $(".b-gal-nav").show();
+  }
+  
+  // Video... not sure if this works yet..
+  if($("div.video").length > 1) {
+    // wrap images
+    $("div.video").wrapAll("<div id='video-wrapper'><div id='video-holder'></div></div>");
+    $("div.video").show();
+    
+    var g2 = Gallery();
+    g2.init($("div#video-holder"), $("div#video-wrapper"), $("span#video-gallery-count")[0], $("a#next-video"), $("a#previous-video"));
+
+    // better to show than to hide... (';
+    $(".video-gal-nav").show();
   }
 });
 
@@ -67,6 +82,4 @@ $(document).ready(function() {
          });
       }
    }).show();
-   
-   
 });
