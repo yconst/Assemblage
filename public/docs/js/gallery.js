@@ -66,9 +66,8 @@ Gallery = function() {
         },
         attachEvents: function() {
             var _this = this,
-                _wrapper = $(this.imageWrapper),
-                _holder = $(this.imageHolder),
-                _c = this.currentImage;
+                _wrapper = this.imageWrapper,
+                _holder = this.imageHolder;
             // write next/prev functions
             this.nextButton.click(function() {
                 _this.next();
@@ -85,8 +84,8 @@ Gallery = function() {
                 clearTimeout(_wrapper.data("resize-event"));
                 _wrapper.data("resize-event", setTimeout(function() {
                   _wrapper.find(".image").css({'width' : _wrapper.width()}, 600);
-                  _holder.css({marginLeft: (_c * _wrapper.width()) * -1 + "px"});
-                  _wrapper.animate({height: _holder.find('img')[_c].height + "px"}, { duration: 400, queue: false });
+                  _holder.css({marginLeft: (_this.currentImage * _wrapper.width()) * -1 + "px"});
+                  _wrapper.animate({height: _holder.find('img')[_this.currentImage].height + "px"}, { duration: 400, queue: false });
                 }, 200) );
             });
         },
