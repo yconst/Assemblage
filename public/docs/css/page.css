@@ -181,7 +181,7 @@ h2#links-title, h2#downloads-title, h2#comments-title, h2#pdfs-title {
   text-align:left;
   clear:both;
   font-size:10px;
-  color:#404040;
+  color:#000;
   margin: 0 auto;
 }
 
@@ -190,12 +190,12 @@ h2#links-title, h2#downloads-title, h2#comments-title, h2#pdfs-title {
 }
 
 #outer-preview-container {
-  background:#dfdfe1;
+  background:#DFDFE1;
 }
 
 #inner-preview-container {
   max-width:960px;
-  margin:4em auto 0 auto;
+  margin:1em auto 0 auto;
 }
 
 /** Image Gallery */
@@ -245,7 +245,7 @@ div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin
 }
 
 #at15s .at_item:hover {
-  background:#5090ea;
+  background:#000;
 }
 
 #at15s .at-settings, #at15s .at_baa, #at15s .at-privacy-close {
@@ -258,5 +258,5 @@ div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin
 
 #at15s .at-settings:hover, #at15s .at_baa:hover, #at15s .at-privacy-close:hover {
   color:#fff;
-  background:#5090ea;
+  background:#000;
 }
