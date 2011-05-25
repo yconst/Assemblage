@@ -12,7 +12,7 @@ body {
   font-style:normal;
   font-variant: normal;
   font-size:13px;
-  line-height: 1.34em;
+  line-height: 1.32em;
   text-decoration:none;
   margin:0;
   background:#f9f9f9;
@@ -112,7 +112,7 @@ img { border:none }
 }
 
 .minh {
-  min-height: 8em;
+  min-height: 5em;
 }
 
 .double-column {
@@ -128,6 +128,7 @@ p {
   -webkit-column-break-inside:avoid;
   -moz-column-break-inside:avoid;
   break-inside:avoid;
+  margin:1.34em 0;
 }
 
 pre {

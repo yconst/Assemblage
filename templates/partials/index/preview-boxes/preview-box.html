@@ -4,11 +4,12 @@ if !@is_current do
       if !@linkout do <a href="@url"> endif
       if @linkout do <a href="@linkout"> endif
       if @thumb do <img src="@thumb" class="projectThumb" alt=""/> endif
-      <span class="projectFrame"><span class="projectTitle">
-      if @date do <span class="projectDate">@date</span><br /> endif
-      @title
-      if @linkout do <img src="@root_path/public/images/arrow_right.png" alt="link"/> endif
-      </span></span>
+      <span class="projectFrame">
+        <span class="projectTitle">@title
+        if @linkout do <img src="@root_path/public/images/arrow_right.png" alt="link"/> endif
+        </span>
+        if @date do <span class="projectDate">@date</span> endif
+      </span>
       </a>
 </div>
 endif

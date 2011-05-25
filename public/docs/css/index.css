@@ -47,7 +47,7 @@ h4 {
 
 html { overflow-y: scroll; }
 
-body { margin: 8px 0 }
+body { margin: 8px 0; min-width: 640px }
 
 img { border: none }
 
@@ -65,6 +65,7 @@ img { border: none }
 }
 
 #desc {
+  min-width:620px;
   text-align:left;
   margin:0 auto;
   padding:0 0 1.8em 0;
@@ -72,7 +73,8 @@ img { border: none }
 }
 
 #desc p {
-  width:480px;
+  font-size:18px;
+  max-width:630px;
 }
 
 #tags {
