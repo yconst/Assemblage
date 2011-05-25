@@ -45,6 +45,10 @@ h4 {
   margin:0;
 }
 
+h4 p {
+  margin:0;
+}
+
 /* Layout */
 
 img { border:none }
@@ -85,7 +89,7 @@ img { border:none }
 .rt {
   font-size:10px;
   padding:8px 0;
-  margin:1.6em 0;
+  margin:1.4em 0;
   width:100%;
   border-top:1px solid #ddd;
 }
@@ -137,7 +141,7 @@ pre {
 }
 
 #description a {
-  color:#efaf18;
+  color:#5080ff;
 }
 
 h2#links-title, h2#downloads-title, h2#comments-title, h2#pdfs-title {
@@ -191,7 +195,7 @@ h2#links-title, h2#downloads-title, h2#comments-title, h2#pdfs-title {
 }
 
 #outer-preview-container {
-  background:#dfdfe1;
+  background:#ececec;
 }
 
 #inner-preview-container {
