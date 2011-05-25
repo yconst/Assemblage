@@ -28,13 +28,17 @@
 
 .projectFrame {
   display:block;
-  padding:3px 2px;
+  padding:4px 2px;
 }
 
 .projectTitle, .projectDate  {
   display:block;
+  font-size:11px;
+  line-height:17px;
+}
+
+.projectTitle {
   font-size:12px;
-  line-height:16px;
 }
 
 .project:hover a {
