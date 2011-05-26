@@ -110,10 +110,11 @@ $(document).ready(function() {
       _collection.slice(0,_index).add(".parent-is-"+_id).has(".tag").removeClass("nosort").removeClass("nestInvis");
       $(".parent-is-"+_id).addClass("nestInvis2");
       
+      // This controls which snapshot elements fade in and out and which are animated.
       $(".project").not("."+_id).not("#control").addClass("nosort").fadeOut(400);
-      $( "."+_id ).removeClass("nosort").fadeIn(400);
+      $( "."+_id ).removeClass("nosort").filter(":not(:visible)").addClass("noanim").fadeIn(400);
       
-      _tags.feedpack();
+      _tags.feedpack({callback : function() {$(".project").removeClass("noanim");}});
       $('#preview-container').feedpack({animate: true, animationOptions: {queue:false}, itemClass: '.project:not(.nosort)'});
    });
    
@@ -127,8 +128,8 @@ $(document).ready(function() {
       _this.parent().next().add(_this.parent()).removeClass("nosort").removeClass("nestInvis");
       $(".parent-is-"+_id).addClass("nestInvis2");
       
-      $( "."+this.id ).removeClass("nosort").fadeIn(400);
-      _tags.feedpack();
+      $( "."+this.id ).removeClass("nosort").filter(":not(:visible)").addClass("noanim").fadeIn(400);
+      _tags.feedpack({callback : function() {$(".project").removeClass("noanim");}});
       $('#preview-container').feedpack({animate: true, animationOptions: {queue:false}, itemClass: '.project:not(.nosort)'});
    });
    

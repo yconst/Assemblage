@@ -96,7 +96,7 @@
 		  // "options.old (set in $.speed for queueing purpose) seems to store
 		  // too much recursive call and freeze the browser when called more
 		  // than x times"
-		  if (_o.animate && _cdata) {
+		  if (!_this.hasClass('noanim') && _o.animate && _cdata) {
 			_this.animate({left: _idx * _colWidth + 'px', top: _top + 'px'}, $.extend( true, {}, _o.animationOptions));
 		  } else {
 			_this.css({left: _idx * _colWidth + 'px', top: _top + 'px'});
