@@ -115,10 +115,6 @@ img { border:none }
   margin: 2em 0 2em 0;
 }
 
-.minh {
-  min-height: 5em;
-}
-
 .double-column {
   -webkit-column-width:320px;
   -webkit-column-gap:20px;
@@ -129,9 +125,6 @@ img { border:none }
 }
 
 p {
-  -webkit-column-break-inside:avoid;
-  -moz-column-break-inside:avoid;
-  break-inside:avoid;
   margin:1.34em 0;
 }
 
