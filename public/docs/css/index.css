@@ -54,6 +54,8 @@ img { border: none }
 #outer-container {
   text-align:center;
   min-width:640px;
+  /* max-width:960px; Add here your custom max width*/
+  margin: 0 auto;
 }
 
 #title {

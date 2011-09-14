@@ -194,7 +194,7 @@ $(document).ready(function() {
    // Please note that the 20 pixels subtracted from the width is beacuse of the
    // preview boxes' margins, so that it looks aligned.
    _title.add(_footer).add('#desc').each(function() {
-      var _w = $(window).width(),
+      var _w = $('#outer-container').width(),
           _n = parseInt(_w/_c);
       $(this).width(_n*_c-20);
    });
@@ -205,7 +205,7 @@ $(document).ready(function() {
          var _it = $(this);
          clearTimeout(_it.data("rsz"));
          _it.data("rsz", setTimeout(function() {
-            var _w = $(window).width(),
+            var _w = $('#outer-container').width(),
                 _n = parseInt(_w/_c);
             _it.width(_n*_c-20);
          }, 200) );
