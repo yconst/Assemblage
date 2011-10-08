@@ -237,12 +237,13 @@ div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin
 }
 
 #at15s .at_item {
+  display: block;
   color:#fff;
   cursor:pointer;
   padding:3px 6px 1px 6px;
 }
 
-#at15s .at_item:hover {
+.at_item:hover {
   background:#5090ea;
 }
 
