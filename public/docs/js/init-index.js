@@ -139,21 +139,9 @@ $(document).ready(function() {
       $(this).prepend("<div class=\"projectCat invis1\">"+_i+"</div>");
    });
    
-   // <SORTING ON LOAD>
-   //
-   // If you want to initially sort projects in a different way than the default
-   // just uncomment (remove the '//') the one that suits you and comment
-   // (add '//') the rest.
-   //
-   // Default: Comment all.
-   //
-   // By Date: Uncomment Below:
-   //$('.project').tsort('.projectDate', {order:'desc'});
-   //
-   // Random Sorting: Uncomment Below:
-   //$('.project:not(#control)').tsort("",{order:"rand"});
-   //
-   // <END OF SORTING ON LOAD>
+   // Initial sorting
+   $('.sort-by-date .project').tsort('.projectDate', {order:'desc'});
+   $('.sort-random .project').tsort("",{order:"rand"});
    
    // Different Sorting Functionality
    // 1. Date

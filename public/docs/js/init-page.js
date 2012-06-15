@@ -67,6 +67,11 @@ $(document).ready(function() {
       }, 500));
    });
 
+   // Initial sorting
+   
+   $('#preview-container.sort-date .project').tsort('.projectDate', {order:'desc'});
+   $('#preview-container.sort-random .project').tsort("",{order:"rand"});
+
    // Pack project thumbnails beneath current project.
    $('#preview-container').feedpack({
       itemClass: '.project:not(.nosort)',

@@ -15,9 +15,9 @@ Finally, it comes along with the [DejaVu sans typeface][5].
 Installation
 Following the installation guidelines set by the Stacey CMS, installation of Assemblage is a snap. Just replace your "public" and "templates" folders and you're set to go, provided that you have the same exhibition names as the original Stacey installation (e.g. index.html, page.html). Assemblage does not require any modification of the core components of stacey (that is, the /app folder).
 
-Known issues and limitations:
-- The link system needs redesign.
-- No documentation yet! (but still easy to install..)
+Customizing Initial order of display
+
+The order of the project thumbs can be customized by means of the "sortby" variable that can be set in the _shared.txt file. This variable takes two possible values: "date" and "random".
 
 [1]: http://www.staceyapp.com
 [2]: http://desandro.com/resources/jquery-masonry/
@@ -27,7 +27,7 @@ Known issues and limitations:
 
 ###License
 
-Copyright (c) 2011, Yiannis Chatzikonstantinou
+Copyright (c) 2011-2012, Yiannis Chatzikonstantinou
 http://www.yconst.com
 All rights reserved.
 
