@@ -68,15 +68,16 @@ $(document).ready(function() {
    });
 
    // Initial sorting
-   
+
    $('#preview-container.sort-date .project').tsort('.projectDate', {order:'desc'});
    $('#preview-container.sort-random .project').tsort("",{order:"rand"});
 
    // Pack project thumbnails beneath current project.
-   $('#preview-container').feedpack({
-      itemClass: '.project:not(.nosort)',
+   $('#preview-container').freetile({
+      selector: '.project:not(.nosort)',
       animate : true,
       forceWidth : true,
+      containerWidthStep: 320,
       callback : function() {
          $('.project').each(function(i) {
             // Sequential fade in effect. Be aware: the display property is used here to enable animation

@@ -16,9 +16,8 @@ $(document).ready(function() {
    // Pack the navigation elements (tag groups)
    $('.nest:not(.nohide)').slice(2).addClass('nosort').addClass("nestInvis");
    $('.nest:not(.nohide)').slice(1).addClass('nestInvis2')
-   _tags.show().feedpack({
-      itemClass: '.nest:visible:not(.nosort)',
-      imageLoad : false,
+   _tags.show().freetile({
+      selector: '.nest:visible:not(.nosort)',
       animate : true,
       forceWidth : true,
       containerWidthStep : _c
@@ -51,7 +50,7 @@ $(document).ready(function() {
       // Expand navigation if not expanded already.
       clearTimeout(_tags.data('compacttags'));
       if (_tags.is(".compact")) {
-         _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").feedpack()},240));
+         _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").freetile()},240));
       }
    }).mouseleave(function() {
       _this=$(this);
@@ -73,7 +72,7 @@ $(document).ready(function() {
       //Compact navigation
       clearTimeout(_tags.data('expandtags'));
       if (!_tags.is(".compact")) {
-         _tags.data('compacttags',setTimeout(function() {_tags.addClass("compact").feedpack()},800));
+         _tags.data('compacttags',setTimeout(function() {_tags.addClass("compact").freetile()},800));
       }
       _options.data('invis',setTimeout(function() {_options.fadeOut(500)},800));
    }).click(function() {
@@ -81,7 +80,7 @@ $(document).ready(function() {
       if (!clickedOnOptions) {
          clearTimeout(_tags.data('compacttags'));
          if (_tags.is(".compact")) {
-            _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").feedpack()},100));
+            _tags.data('expandtags',setTimeout(function() {_tags.removeClass("compact").freetile()},100));
          }
       }
       clickedOnOptions = false;
@@ -114,8 +113,8 @@ $(document).ready(function() {
       $(".project").not("."+_id).not("#control").addClass("nosort").fadeOut(400);
       $( "."+_id ).removeClass("nosort").filter(":not(:visible)").addClass("noanim").fadeIn(400);
       
-      _tags.feedpack({callback : function() {$(".project").removeClass("noanim");}});
-      $('#preview-container').feedpack({animate: true, animationOptions: {queue:false}, itemClass: '.project:not(.nosort)'});
+      _tags.freetile({callback : function() {$(".project").removeClass("noanim");}});
+      $('#preview-container').freetile({animate: true, animationOptions: {queue:false}, selector: '.project:not(.nosort)'});
    });
    
    // Clicking on 'home' tag
@@ -129,8 +128,8 @@ $(document).ready(function() {
       $(".parent-is-"+_id).addClass("nestInvis2");
       
       $( "."+this.id ).removeClass("nosort").filter(":not(:visible)").addClass("noanim").fadeIn(400);
-      _tags.feedpack({callback : function() {$(".project").removeClass("noanim");}});
-      $('#preview-container').feedpack({animate: true, animationOptions: {queue:false}, itemClass: '.project:not(.nosort)'});
+      _tags.freetile({callback : function() {$(".project").removeClass("noanim");}});
+      $('#preview-container').freetile({animate: true, animationOptions: {queue:false}, selector: '.project:not(.nosort)'});
    });
    
    // Save original element order into a new invisible div and Sort using TinySort
@@ -140,31 +139,32 @@ $(document).ready(function() {
    });
    
    // Initial sorting
-   $('.sort-by-date .project').tsort('.projectDate', {order:'desc'});
+   $('.sort-date .project').tsort('.projectDate', {order:'desc'});
    $('.sort-random .project').tsort("",{order:"rand"});
    
    // Different Sorting Functionality
    // 1. Date
    $('#sbd').click(function() {
       $('.project:not(#control)').tsort('.projectDate', {order:'desc'});
-      $('#preview-container').feedpack();
+      $('#preview-container').freetile();
    });
    // 2. Original
    $('#sbc').click(function() {
       $('.project:not(#control)').tsort('.projectCat', {order:'asc'});
-      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+      $('#preview-container').freetile({animate: true, selector: '.project:not(.nosort)'});
    });
    // 3. Random. Fun.
    $('#sbr').click(function() {
       $('.project:not(#control)').tsort("",{order:"rand"});
-      $('#preview-container').feedpack({animate: true, itemClass: '.project:not(.nosort)'});
+      $('#preview-container').freetile({animate: true, selector: '.project:not(.nosort)'});
    });
    
    // Pack project thumbnails
-   $('#preview-container').feedpack({
-      itemClass: '.project:not(.nosort)',
+   $('#preview-container').freetile({
+      selector: '.project:not(.nosort)',
       animate : true,
       forceWidth : true,
+      containerWidthStep: 320,
       callback : function() {
          $('.project').each(function(i) {
             // Sequential fade in effect. Be aware: the display property is used here to enable animation
