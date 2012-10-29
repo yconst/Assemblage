@@ -8,12 +8,12 @@
 Gallery = function() {
     return {
         currentImage: 0,
-        imageHolder: null,
-        imageWrapper: null,
-        imageCountHolder: null,
-        maxCount: null,
-        nextButton: null,
-        prevButoon: null,
+        imageHolder: '',
+        imageWrapper: '',
+        imageCountHolder: '',
+        maxCount: '',
+        nextButton: '',
+        prevButoon: '',
         init: function(imageHolder, imageWrapper, imageCountHolder, nextButton, prevButton, descriptionHolder, descriptionWidth) {
           // set custom variables
           this.imageHolder = imageHolder;
@@ -76,6 +76,11 @@ Gallery = function() {
             });
             this.prevButton.click(function() {
                 _this.previous();
+                this.blur();
+                return false;
+            });
+            _holder.find('.image').click(function() {
+                _this.next();
                 this.blur();
                 return false;
             });

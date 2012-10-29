@@ -200,7 +200,7 @@ h2#links-title, h2#downloads-title, h2#comments-title, h2#pdfs-title {
 
 div#a-image-wrapper, div#b-image-wrapper { overflow: hidden; width: 100%; margin: 0.4em 0 2.4em 0}
 div#a-image-holder, div#b-image-holder { width: 1000000px; }
-div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin: 0px; padding: 0px;}
+div#a-image-holder div.image, div#b-image-holder div.image { float: left; margin: 0px; padding: 0px; cursor: pointer;}
 .a-gal-nav, .b-gal-nav {
   display:none;
   cursor:pointer;
